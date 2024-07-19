@@ -88,30 +88,16 @@ export default function Header() {
         <div className="bg-white border-t-[1px] border-lightGray py-3">
           <div className="max-w-[1110px] mx-auto flex flex-col items-center lg:hidden">
             <ul className="flex flex-col list-none w-full px-4">
-              <li className="nav-item mb-2">
-                <Link
-                  className="px-3 py-2 flex items-center text-lead-2 font-lead-2 leading-snug text-black hover:opacity-75"
-                  to="/other/about"
-                >
-                  About
-                </Link>
-              </li>
-              <li className="nav-item mb-2">
-                <Link
-                  className="px-3 py-2 flex items-center text-lead-2 font-lead-2 leading-snug text-black hover:opacity-75"
-                  to="#pablo"
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li className="nav-item mb-2">
-                <Link
-                  className="px-3 py-2 flex items-center text-lead-2 font-lead-2 leading-snug text-black hover:opacity-75"
-                  to="#pablo"
-                >
-                  Contact
-                </Link>
-              </li>
+              {NAVS.map((nav) => (
+                <li key={nav.label} className="nav-item mb-2">
+                  <Link
+                    className="px-3 py-2 flex items-center text-lead-2 font-lead-2 leading-snug text-black hover:opacity-75"
+                    to={nav.path}
+                  >
+                    {nav.label}
+                  </Link>
+                </li>
+              ))}
               <li className="nav-item mb-2">
                 <button className="bg-lightPurple py-[10px] px-[30px] text-darkPurple rounded-[8px] hover:text-white w-full">
                   Login
